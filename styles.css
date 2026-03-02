@@ -1,0 +1,71 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #10131a;
+  color: #e6ebff;
+}
+
+.app {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.viewer,
+.editor-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #2a3140;
+  background: #090b12;
+}
+
+#video,
+#overlay {
+  width: 100%;
+  display: block;
+}
+
+#overlay,
+#editOverlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.controls {
+  margin: 0.75rem 0;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+button,
+select {
+  border-radius: 8px;
+  border: 1px solid #36405a;
+  background: #1a2336;
+  color: #eef2ff;
+  padding: 0.5rem 0.75rem;
+}
+
+button:disabled {
+  opacity: 0.5;
+}
+
+#resultCanvas,
+#editOverlay {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hint {
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
