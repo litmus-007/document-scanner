@@ -1,0 +1,2 @@
+# No third-party Python dependencies are required.
+# This file exists so `pip install -r requirements.txt` works in a virtual environment.
