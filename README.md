@@ -8,13 +8,16 @@ A mobile-web document scanner prototype implementing the plan from `DOCUMENT_SCA
 - enhancement presets (`None`, `Document`, `B&W`),
 - manual corner-adjust fallback.
 
-## Run locally
+## Run locally (with virtual environment)
 
 ```bash
-python3 -m http.server 8080
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python serve.py --host 0.0.0.0 --port 8080
 ```
 
-Open http://localhost:8080 and allow camera access.
+Then open `http://localhost:8080` and allow camera access.
 
 ## Notes
 
