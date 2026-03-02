@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document Scanner Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <h1>Mobile Document Scanner</h1>
+        <p>Auto-detect edges, correct perspective, and export clean scans.</p>
+      </header>
+
+      <section class="camera-panel">
+        <div class="viewer">
+          <video id="video" playsinline autoplay muted></video>
+          <canvas id="overlay"></canvas>
+        </div>
+        <div class="controls">
+          <button id="startCamera">Start Camera</button>
+          <button id="captureBtn" disabled>Capture Now</button>
+          <label>
+            Enhancement
+            <select id="enhancement">
+              <option value="none">None</option>
+              <option value="document">Document</option>
+              <option value="bw">B&W</option>
+            </select>
+          </label>
+          <button id="downloadBtn" disabled>Download JPEG</button>
+        </div>
+        <p id="status">Loading OpenCV...</p>
+      </section>
+
+      <section class="result-panel">
+        <h2>Corrected Scan</h2>
+        <div class="editor-wrap">
+          <canvas id="resultCanvas" width="800" height="1100"></canvas>
+          <canvas id="editOverlay" width="800" height="1100"></canvas>
+        </div>
+        <p class="hint">Tip: Drag the corner points to manually refine crop before downloading.</p>
+      </section>
+    </main>
+
+    <script>
+      window.Module = {
+        onRuntimeInitialized() {
+          window.dispatchEvent(new Event('opencv-ready'));
+        },
+      };
+    </script>
+    <script async src="https://docs.opencv.org/4.10.0/opencv.js"></script>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
